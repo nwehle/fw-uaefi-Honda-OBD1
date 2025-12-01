@@ -4,40 +4,40 @@
 #pragma once
 
 Gpio GENERATED_OUTPUTS = {
-	Gpio::MM100_MEGA_UAEFI_INJ1, // A1 injector out 1
-	Gpio::MM100_INJ4, // A2 injector out 4
-	Gpio::MM100_INJ2, // A3 injector out 2
-	Gpio::MM100_INJ3, // A5 injector out 3
-	Gpio::MM100_OUT_PWM2, // Fuel Pump Relay
+	Gpio::MM100_MEGA_UAEFI_INJ1, // A1 injector output 1
+	Gpio::MM100_INJ4, // A2 injector output 4
+	Gpio::MM100_INJ2, // A3 injector output 2
+	Gpio::MM100_INJ3, // A5 injector output 3
+	Gpio::MM100_OUT_PWM2, // A7 Fuel Pump Relay output
 	Gpio::MM100_INJ8, // A9 IACV output
-	Gpio::MM100_INJ5, // A11 EGR solenoid Output
-	Gpio::MM100_IGN8, // A12 Fan relay Output
+	Gpio::MM100_INJ5, // A11 EGR solenoid output
+	Gpio::MM100_IGN8, // A12 Fan relay output
 	Gpio::MM100_INJ7, // A13 MIL output
 	Gpio::MM100_OUT_PWM1, // A15 A/C clutch relay output
 	Gpio::MM100_INJ6, // A17 IAB output
-	Gpio::MM100_IGN7, // A21 ignition control module Output
-	Gpio::MM100_IGN5, // tach output connector 4 pin 4
-	Gpio::MM100_IGN4, // Ignition Coil 4 output connector 4 pin 5
-	Gpio::MM100_IGN3, // Ignition Coil 3 output connector 4 pin 6
-	Gpio::MM100_IGN2, // Ignition Coil 2 output connector 4 pin 7
-	Gpio::MM100_IGN1, // Ignition Coil 1 output connector J4 pin 8
+	Gpio::MM100_IGN7, // A21 ignition control module output
+	Gpio::MM100_IGN5, // J4_4 J4_4 Aux Tachometer output
+	Gpio::MM100_IGN4, // J4_5 J4_5 Ignition Coil 4 output
+	Gpio::MM100_IGN3, // J4_6 J4_6 Ignition Coil 3 output
+	Gpio::MM100_IGN2, // J4_7 J4_7 Ignition Coil 2 output
+	Gpio::MM100_IGN1, // J4_8 J4_8 Ignition Coil 1 output
 	Gpio::MM100_IGN6, // A4 VTEC Solenoid output
-// "A1 injector out 1",
-// "A2 injector out 4",
-// "A3 injector out 2",
-// "A5 injector out 3",
-// "Fuel Pump Relay",
+// "A1 injector output 1",
+// "A2 injector output 4",
+// "A3 injector output 2",
+// "A5 injector output 3",
+// "A7 Fuel Pump Relay output",
 // "A9 IACV output",
-// "A11 EGR solenoid Output",
-// "A12 Fan relay Output",
+// "A11 EGR solenoid output",
+// "A12 Fan relay output",
 // "A13 MIL output",
 // "A15 A/C clutch relay output",
 // "A17 IAB output",
-// "A21 ignition control module Output",
-// "tach output connector 4 pin 4",
-// "Ignition Coil 4 output connector 4 pin 5",
-// "Ignition Coil 3 output connector 4 pin 6",
-// "Ignition Coil 2 output connector 4 pin 7",
-// "Ignition Coil 1 output connector J4 pin 8",
+// "A21 ignition control module output",
+// "J4_4 J4_4 Aux Tachometer output",
+// "J4_5 J4_5 Ignition Coil 4 output",
+// "J4_6 J4_6 Ignition Coil 3 output",
+// "J4_7 J4_7 Ignition Coil 2 output",
+// "J4_8 J4_8 Ignition Coil 1 output",
 // "A4 VTEC Solenoid output",
 }

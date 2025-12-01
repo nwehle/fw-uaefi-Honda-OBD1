@@ -1,1 +1,62 @@
+# Build outputs
+build/
+*.o
+*.elf
+*.bin
+*.hex
+*.dmp
+*.list
+*.map
+*.lst
+firmware/
+build_output*.txt
+
+# Generated files
+generated/
+
+# Unit test builds
+unit_tests/build/
+unit_tests/build-*/
+
+# Java/Gradle
+.gradle/
+java_tools/build/
+java_tools/.gradle/
+*.class
+
+# IDE files
+.vscode/
 /.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+.Trash-*/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite

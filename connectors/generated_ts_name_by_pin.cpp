@@ -7,27 +7,27 @@
 const char * getBoardSpecificPinName(brain_pin_e brainPin) {
 	switch(brainPin) {
 		case Gpio::A8: return "A17 IAB output";
-		case Gpio::A9: return "A3 injector out 2";
+		case Gpio::A9: return "A3 injector output 2";
 		case Gpio::B8: return "A4 VTEC Solenoid output";
-		case Gpio::B9: return "A21 ignition control module Output";
-		case Gpio::C13: return "Ignition Coil 1 output connector J4 pin 8";
-		case Gpio::C6: return "Fuel Pump Relay";
-		case Gpio::D0: return "A1 injector out 1";
-		case Gpio::D10: return "A2 injector out 4";
-		case Gpio::D11: return "A5 injector out 3";
+		case Gpio::B9: return "A21 ignition control module output";
+		case Gpio::C13: return "J4_8 J4_8 Ignition Coil 1 output";
+		case Gpio::C6: return "A7 Fuel Pump Relay output";
+		case Gpio::D0: return "A1 injector output 1";
+		case Gpio::D10: return "A2 injector output 4";
+		case Gpio::D11: return "A5 injector output 3";
 		case Gpio::D12: return "A9 IACV output";
 		case Gpio::D13: return "A15 A/C clutch relay output";
 		case Gpio::D15: return "A13 MIL output";
-		case Gpio::D2: return "A11 EGR solenoid Output";
-		case Gpio::E0: return "B11 Cam sensor input";
-		case Gpio::E1: return "B15 crank sensor input";
+		case Gpio::D2: return "A11 EGR solenoid output";
+		case Gpio::E0: return "B11 Cam sensor input (CYP 1-pulse)";
+		case Gpio::E1: return "B15 crank sensor input (CKP 24-pulse)";
 		case Gpio::E11: return "C7 Flex sensor input";
 		case Gpio::E13: return "B10 VSS input";
-		case Gpio::E2: return "tach output connector 4 pin 4";
-		case Gpio::E3: return "Ignition Coil 4 output connector 4 pin 5";
-		case Gpio::E4: return "Ignition Coil 3 output connector 4 pin 6";
-		case Gpio::E5: return "Ignition Coil 2 output connector 4 pin 7";
-		case Gpio::E6: return "A12 Fan relay Output";
+		case Gpio::E2: return "J4_4 J4_4 Aux Tachometer output";
+		case Gpio::E3: return "J4_5 J4_5 Ignition Coil 4 output";
+		case Gpio::E4: return "J4_6 J4_6 Ignition Coil 3 output";
+		case Gpio::E5: return "J4_7 J4_7 Ignition Coil 2 output";
+		case Gpio::E6: return "A12 Fan relay output";
 		default: return nullptr;
 	}
 	return nullptr;

@@ -12,3 +12,6 @@ DDEFS += -DDEFAULT_ENGINE_TYPE=engine_type_e::HONDA_OBD1
 include $(BOARD_DIR)/meta-info.env
 
 include $(BOARD_DIR)/ext/rusefi/firmware/config/boards/hellen/uaefi121/mega-uaefi.mk
+
+# Override: Use rusefi F4 linker script (with CCM heap support, no bootloader)
+override LDSCRIPT = $(BOARD_DIR)/ext/rusefi/firmware/hw_layer/ports/stm32/stm32f4/STM32F4.ld

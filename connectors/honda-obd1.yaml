@@ -1,333 +1,505 @@
 meta: config/boards/hellen_mm100_meta.h
 
 pins:
-  - pin: J2_1
-    class: analog_inputs
-    meta: MM100_IN_PPS_ANALOG
-    ts_name: ___ PPS1
-    function: PPS input 1
-    type: av
-    color: white
+  # ================== HONDA OBD1 ADAPTER J1 CONNECTOR - TPS + ETB (6 pins) ==================
+  # 43045-0612 connector (2x3 pins)
+  - pin: J1_1
+    class: outputs
+    ts_name: ___ ETB Motor 1+ (DC1+)
+    function: Electronic Throttle Body Motor 1 Positive
+    type: etb
+    color: blue
 
-  - pin: J2_5
+  - pin: J1_2
     class: analog_inputs
-    meta: MM100_IN_AUX2_ANALOG
-    ts_name: ___ PPS2
-    function: PPS input 2
+    meta: MM100_IN_TPS_ANALOG
+    ts_name: ___ TPS1 sensor input
+    function: Throttle Position Sensor 1 (TPS1)
     type: av
-    color: orange/brown
+    color: green
+
+  - pin: J1_3
+    function: +5V Sensor Reference
+    type: 5v
+    color: red
+
+  - pin: J1_4
+    class: outputs
+    ts_name: ___ ETB Motor 1- (DC1-)
+    function: Electronic Throttle Body Motor 1 Negative
+    type: etb
+    color: white
 
   - pin: J1_5
     class: analog_inputs
     meta: MM100_IN_AUX1_ANALOG
-    ts_name: ___ TPS2
-    function: TPS 2 sensor input
+    ts_name: ___ TPS2 sensor input
+    function: Throttle Position Sensor 2 (TPS2) / Auxiliary Analog Input 1
     type: av
     color: blue
 
+  - pin: J1_6
+    function: Ground / +5V Reference
+    type: gnd
+    color: black
+
+  # ================== HONDA OBD1 ADAPTER J2 CONNECTOR - PPS SENSORS (6 pins) ==================
+  # 43045-0612 connector (2x3 pins)
+  - pin: J2_1
+    function: Sensor Ground
+    type: gnd
+    color: black
+
+  - pin: J2_2
+    class: analog_inputs
+    meta: MM100_IN_PPS_ANALOG
+    ts_name: ___ PPS1 sensor input
+    function: Pedal Position Sensor 1 (PPS1)
+    type: av
+    color: white
+
+  - pin: J2_3
+    function: +5V Sensor Reference
+    type: 5v
+    color: red
+
+  - pin: J2_4
+    function: Sensor Ground
+    type: gnd
+    color: black
+
+  - pin: J2_5
+    class: analog_inputs
+    meta: MM100_IN_AUX2_ANALOG
+    ts_name: ___ PPS2 sensor input
+    function: Pedal Position Sensor 2 (PPS2) / Auxiliary Analog Input 2
+    type: av
+    color: orange/brown
+
+  - pin: J2_6
+    function: +5V Sensor Reference
+    type: 5v
+    color: red
+
+  # ================== HONDA OBD1 ADAPTER J3 CONNECTOR - CAN BUS & SERIAL (6 pins) ==================
+  # 43045-0612 connector (2x3 pins)
+  - pin: J3_1
+    function: LED Green (P4)
+    ts_name: ___ LED Green indicator
+    color: green
+
+  - pin: J3_2
+    function: UART Rx (to P7)
+    ts_name: ___ UART Rx
+    type: hall
+
+  - pin: J3_3
+    function: CAN High
+    ts_name: ___ CAN High
+    type: can
+    color: green
+
+  - pin: J3_4
+    function: LED Yellow (P3)
+    ts_name: ___ LED Yellow indicator
+    color: yellow
+
+  - pin: J3_5
+    function: UART Tx (to P8)
+    ts_name: ___ UART Tx
+    type: hall
+
+  - pin: J3_6
+    function: CAN Low
+    ts_name: ___ CAN Low
+    type: can
+    color: blue
+
+  # ================== HONDA OBD1 ADAPTER J4 CONNECTOR - IGNITION COILS (8 pins) ==================
+  # Conn_02x04_Top_Bottom (2x4 pins)
+  - pin: J4_1
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: J4_2
+    function: +12V Ignition Power
+    type: 12v
+    color: red
+
+  - pin: J4_3
+    function: +12V Ignition Power
+    type: 12v
+    color: red
 
   - pin: J4_4
-    function: J4_4 Aux Tachometer
-    ts_name: tach output connector 4 pin 4
-    meta: MM100_IGN5
     class: outputs
+    meta: MM100_IGN5
+    ts_name: J4_4 ___ Aux Tachometer output
+    function: Auxiliary Tachometer Output
     type: hs
+    color: yellow
 
   - pin: J4_5
     class: outputs
     meta: MM100_IGN4
-    ts_name: Ignition Coil 4 output connector 4 pin 5
-    function: Coil 4
+    ts_name: J4_5 ___ Ignition Coil 4 output
+    function: Ignition Coil 4 Control
     type: ign
     color: orange
 
   - pin: J4_6
     class: outputs
     meta: MM100_IGN3
-    ts_name: Ignition Coil 3 output connector 4 pin 6
-    function: Coil 3
+    ts_name: J4_6 ___ Ignition Coil 3 output
+    function: Ignition Coil 3 Control
     type: ign
     color: blue
 
   - pin: J4_7
     class: outputs
     meta: MM100_IGN2
-    ts_name: Ignition Coil 2 output connector 4 pin 7
-    function: Coil 2
+    ts_name: J4_7 ___ Ignition Coil 2 output
+    function: Ignition Coil 2 Control
     type: ign
     color: white
 
   - pin: J4_8
     class: outputs
     meta: MM100_IGN1
-    ts_name: Ignition Coil 1 output connector J4 pin 8
-    function: Coil 1
+    ts_name: J4_8 ___ Ignition Coil 1 output
+    function: Ignition Coil 1 Control
     type: ign
     color: green
 
+  # ================== HONDA OBD1 ADAPTER J5 CONNECTOR - CRANK/CAM VR SENSORS (6 pins) ==================
+  # 43045-0612 connector (2x3 pins)
+  - pin: J5_1
+    function: Sensor Ground
+    type: gnd
+    color: black
+
+  - pin: J5_2
+    function: Crankshaft Position Sensor (CKP) VR Input - Optional/Alternate
+    ts_name: ___ Crank sensor input (VR) - OPTIONAL
+    type: vr
+    color: white
+
+  - pin: J5_3
+    function: +5V Sensor Reference
+    type: 5v
+    color: red
+
+  - pin: J5_4
+    function: Sensor Ground
+    type: gnd
+    color: black
+
+  - pin: J5_5
+    function: Camshaft Position Sensor (CAM) VR Input - Optional/Alternate
+    ts_name: ___ Cam sensor input (VR) - OPTIONAL
+    type: vr
+    color: blue
+
+  - pin: J5_6
+    function: +5V Sensor Reference
+    type: 5v
+    color: red
+
+  # ================== HONDA OBD1 ADAPTER J7 CONNECTOR - OPTIONAL/UNPOPULATED (4 pins) ==================
+  # May not be connected on adapter board
+  - pin: J7_1
+    function: Optional VR1+ / Not Connected
+    ts_name: ___ J7_1 (may not be connected)
+
+  - pin: J7_2
+    function: Optional VR1- / Not Connected
+    ts_name: ___ J7_2 (may not be connected)
+
+  - pin: J7_3
+    function: Optional VR2+ / Not Connected
+    ts_name: ___ J7_3 (may not be connected)
+
+  - pin: J7_4
+    function: Optional VR2- / Not Connected
+    ts_name: ___ J7_4 (may not be connected)
+
+  # ================== OBD1 CONNECTOR A - OUTPUTS & CONTROL (26 pins) ==================
   - pin: A1
     class: outputs
     meta: MM100_MEGA_UAEFI_INJ1
-    ts_name: ___ injector out 1
-    function: Injector 1
+    ts_name: ___ injector output 1
+    function: Fuel Injector 1
     color: green
     type: inj
 
   - pin: A2
     class: outputs
     meta: MM100_INJ4
-    ts_name: ___ injector out 4
-    function: Injector 4
+    ts_name: ___ injector output 4
+    function: Fuel Injector 4
     color: orange/brown
     type: inj
 
   - pin: A3
-    function: Injector 2
     class: outputs
     meta: MM100_INJ2
-    ts_name: ___ injector out 2
+    ts_name: ___ injector output 2
+    function: Fuel Injector 2
     color: white
     type: inj
 
   - pin: A4
-    function: ___ VTEC Solenoid Valve
+    class: outputs
     meta: MM100_IGN6
     ts_name: ___ VTEC Solenoid output
-    color: green
-    class: outputs
+    function: VTEC Solenoid
+    color: green/yellow
     type: hs
 
   - pin: A5
     class: outputs
     meta: MM100_INJ3
-    ts_name: ___ injector out 3
-    function: Injector 3
+    ts_name: ___ injector output 3
+    function: Fuel Injector 3
     color: blue
     type: inj
 
   - pin: A6
     function: OEM O2 Heater UNUSED
-#      / rusEFI WBO heater white pin 3
 
   - pin: A7
-    meta: MM100_OUT_PWM2
-    function: Fuel Pump Relay
     class: outputs
+    meta: MM100_OUT_PWM2
+    ts_name: ___ Fuel Pump Relay output
+    function: Fuel Pump Relay
     type: ls
-
-#  - pin: A8
-#    function: rusEFI WBO pin 1
 
   - pin: A9
+    class: outputs
     meta: MM100_INJ8
     ts_name: ___ IACV output
-    class: outputs
-    type: ls
     function: Idle Air Control Valve
+    type: ls
 
   - pin: A10
     function: OEM Engine Mount Control UNUSED
-      #/ rusEFI WBO pin 2
+
   - pin: A11
-    function: EGR Solenoid
-    meta: MM100_INJ5
-    ts_name: ___ EGR solenoid Output
     class: outputs
+    meta: MM100_INJ5
+    ts_name: ___ EGR solenoid output
+    function: EGR Solenoid
     type: ls
 
   - pin: A12
-    function: Radiator Fan Control Module
-    meta: MM100_IGN8
-    ts_name: ___ Fan relay Output
     class: outputs
+    meta: MM100_IGN8
+    ts_name: ___ Fan relay output
+    function: Radiator Fan Control Module
     type: ls
 
   - pin: A13
-    function: MIL Check Engine Light
+    class: outputs
     meta: MM100_INJ7
     ts_name: ___ MIL output
-    class: outputs
+    function: MIL Check Engine Light
     type: ls
 
   - pin: A14
     function: OEM Fuel Injection Air Control UNUSED
-#      / rusEFI WBO pin 4
+
   - pin: A15
-    function: A/C compressor clutch relay
+    class: outputs
     meta: MM100_OUT_PWM1
     ts_name: ___ A/C clutch relay output
-    class: outputs
+    function: A/C Compressor Clutch Relay
     type: ls
 
   - pin: A16
-    function: rusEFI Aux Low Side output 1
+    function: Aux Low Side output 1
+    ts_name: ___ Aux LS output 1
 
   - pin: A17
-    meta: MM100_INJ6
-    function: IAB intake manifold butterflies solenoid
     class: outputs
+    meta: MM100_INJ6
     ts_name: ___ IAB output
+    function: IAB Intake Manifold Butterflies Solenoid
     type: ls
-
-  #  - pin: A18
-  #    function: rusEFI WBO pin 5
-
-  #  - pin: A19
-  #    function: rusEFI WBO pin 6
 
   - pin: A20
-    function: PCS Purge Control Solenoid UNUSED / rusEFI Aux Low Side output 2
-    ts_name: Gas tank purge solenoid
+    function: PCS Purge Control Solenoid UNUSED / Aux Low Side output 2
+    ts_name: ___ Gas tank purge solenoid
 
   - pin: A21
-    function: ICM Coil Control
-    ts_name: ___ ignition control module Output
-    meta: MM100_IGN7
     class: outputs
+    meta: MM100_IGN7
+    ts_name: ___ ignition control module output
+    function: ICM Coil Control
     type: ls
-
-#  - pin: A22
-#    function:
 
   - pin: A23
     function: Power Ground
     color: black
     type: gnd
+
   - pin: A24
     function: Power Ground
     color: black
     type: gnd
 
   - pin: A25
+    ts_name: ___ ignition switch +12V
     function: Ignition Switch / Battery Voltage Analog Input
-    class: analog_inputs
     color: red
     type: 12v
-    ts_name: ___ ignition switch +12V
 
   - pin: A26
     function: Logic Ground
     color: black
     type: gnd
 
+  # ================== OBD1 CONNECTOR B - SENSOR INPUTS (16 pins) ==================
   - pin: B1
-    function: Ignition Switch / Battery Voltage Analog Input
     ts_name: ___ ignition switch +12V same as A25
+    function: Ignition Switch / Battery Voltage Analog Input
     color: red
+    type: 12v
+
   - pin: B2
     function: Logic Ground
+    type: gnd
+
   - pin: B3
     function: TCU UNUSED
+
   - pin: B4
     function: TCU UNUSED
+
   - pin: B5
-    function: A/C Pressure Switch (open drain)
-  #  - pin: B6
-  #    function: rusEFI Flex Input
-  #    class: event_inputs
+    class: analog_inputs
+    meta: MM100_IN_AUX3_ANALOG
+    ts_name: ___ AUX3 Fuel Level / A/C Pressure
+    function: A/C Pressure Switch / Fuel Level Sensor (AUX3 PA7)
+    type: av
 
   - pin: B7
     function: AT Gear Pos Part UNUSED
+
   - pin: B8
     function: Power Steering Pres Switch UNUSED (open drain)
+
   - pin: B9
     function: Starter Signal +12 when cranking
+
   - pin: B10
-    #Input (grounded 4 times per speedometer cable revolution)
-    meta: MM100_IN_D2
     class: event_inputs
-    function: Vehicle Speed Sensor
+    meta: MM100_IN_D2
     ts_name: ___ VSS input
+    function: Vehicle Speed Sensor
+    type: hall
 
   - pin: B11
-    # one pulse per cam rev VR discrete
-    function: CYP Signal (1 pulse)
-    meta: MM100_UART8_RX
-    type: hall
     class: event_inputs
-    ts_name: ___ Cam sensor input
+    meta: MM100_UART8_RX
+    ts_name: ___ Cam sensor input (CYP 1-pulse)
+    function: CYP Sensor 1-pulse (+) / Cam Position
     color: blue
+    type: vr
 
   - pin: B12
     function: CYP Ground
+    type: gnd
+
   - pin: B13
     function: TDC Signal UNUSED
+
   - pin: B14
     function: TDC Ground UNUSED
+    type: gnd
 
   - pin: B15
-    # Input, 24 pulses per cam
-    function: CKP Signal (24 pulses)
-    meta: MM100_UART8_TX
     class: event_inputs
-    ts_name: ___ crank sensor input
+    meta: MM100_UART8_TX
+    ts_name: ___ crank sensor input (CKP 24-pulse)
+    function: CKP Sensor 24-pulse (+) / Crank Position
     color: white
+    type: vr
 
   - pin: B16
     function: CKP Ground
+    type: gnd
 
+  # ================== OBD1 CONNECTOR D - ANALOG SENSORS (22 pins) ==================
   - pin: D1
     function: Constant +12v UNUSED
+    type: 12v
 
   - pin: D2
     function: Brake Pedal (+12 when braking)
-    # TODO!
 
   - pin: D3
+    class: analog_inputs
+    meta: MM100_IN_AUX4_ANALOG
+    ts_name: ___ Knock sensor input
     function: Knock Sensor
+    type: av
 
   - pin: D4
     function: Diag via MIL Mode Switch (open drain)
-    # TODO?
 
   - pin: D6
-    function: VTEC Pressure Switch UNUSED (+12 when something)
-    # TODO?
+    function: VTEC Pressure Switch UNUSED (+12 when active)
 
   - pin: D7
     function: K-Line UNUSED
 
   - pin: D11
-    function: TPS Throttle Position Sensor. Same as J1_2
-    meta: MM100_IN_TPS_ANALOG
-    class: analog_inputs
-    ts_name: ___ TPS1 (same as J1_2pin)
+    ts_name: ___ TPS1 sensor input (same as J1_2)
+    function: Throttle Position Sensor (same as J1_2)
     type: av
     color: green
 
   - pin: D12
-    function: OEM Analog Input EGR Lift Sensor / rusEFI Aux Analog Input
-    ts_name: egr position sensor input
-    class: analog_inputs
+    ts_name: ___ EGR position sensor input
+    function: OEM Analog Input EGR Lift Sensor / Aux Analog Input
+    type: av
 
   - pin: D13
-    function: Coolant Sensor
     class: analog_inputs
     meta: MM100_IN_CLT_ANALOG
     ts_name: ___ CLT sensor input
+    function: Coolant Sensor
     type: at
     color: grey
 
   - pin: D14
-    function: OEM o2 UNUSED / rusEFI Aux Analog Input
-    meta: MM100_IN_O2S2_ANALOG
     class: analog_inputs
-    ts_name: ___  OEM O2 sensor input
+    meta: MM100_IN_O2S2_ANALOG
+    ts_name: ___ OEM O2 sensor input
+    function: OEM o2 UNUSED / Aux Analog Input
     type: av
 
   - pin: D15
-    function: IAT Intake Sensor
     class: analog_inputs
     meta: MM100_IN_IAT_ANALOG
-    ts_name: ___ IAT sensor
+    ts_name: ___ IAT sensor input
+    function: IAT Intake Sensor
     type: at
+    color: white/yellow
+
+  - pin: D16
+    function: +5V Reference / Sensor Power
+    color: red/white
+    type: 5v
 
   - pin: D17
-    function: ___ MAP Sensor
     class: analog_inputs
     meta: MM100_IN_MAP1_ANALOG
-    ts_name: ___ Map sensor input
+    ts_name: ___ MAP sensor input
+    function: MAP Sensor
     color: yellow
+    type: av
 
   - pin: D18
     function: TCM Output +5V
@@ -341,397 +513,67 @@ pins:
     function: TPS Output +5V
     type: 5v
 
-
   - pin: D21
     function: Sensor ground
+    type: gnd
 
   - pin: D22
     function: Sensor ground
+    type: gnd
 
-
-  # AUX plug
+  # ================== CONNECTOR C (ONBOARD) - LSU 4.9 WIDEBAND O2 CONTROLLER (6 pins) ==================
   - pin: C1
     function: WBO Heater Power
+    ts_name: ___ WBO Heater Power
     color: grey
 
   - pin: C2
     function: WBO Heater Control sensor pin 3
+    ts_name: ___ WBO Heater Control (LSU pin 3)
     color: white
 
   - pin: C3
     function: WBO VM sensor pin 2
+    ts_name: ___ WBO VM (LSU pin 6)
     color: yellow
 
   - pin: C4
     function: WBO IP sensor pin 1
+    ts_name: ___ WBO IP (LSU pin 1)
     color: red
 
   - pin: C5
     function: WBO cal R sensor pin 5
+    ts_name: ___ WBO cal R (LSU pin 5)
     color: green
 
   - pin: C6
     function: WBO VS sensor pin 6
+    ts_name: ___ WBO VS (LSU pin 2)
     color: black
 
   - pin: C7
-    function: FLEX
     class: event_inputs
     meta: MM100_IN_VSS
     ts_name: ___ Flex sensor input
+    function: Flex Fuel Sensor
+    type: hall
 
   - pin: C8
-    ts_name: Aux P17 see schematics
+    ts_name: ___ Aux P17 see schematics
+    function: Auxiliary output P17
 
   - pin: C9
-    ts_name: Aux P18 see schematics
+    ts_name: ___ Aux P18 see schematics
+    function: Auxiliary output P18
 
   - pin: C11
-    ts_name: Aux P20 see schematics
+    ts_name: ___ Aux P20 see schematics
+    function: Auxiliary output P20
 
 info:
-  title: uaefi-OBD1
-  board_url: https://rusefi.com/s/uaefi-h-obd1
-  cid: main
-  directory: uaefi-OBD1
-  image:
-    file: 76pin-178780.jpg
-  pins:
-    - pin: A1
-      x: 171
-      y: 243
-    - pin: A2
-      x: 171
-      y: 369
-
-    - pin: A3
-      x: 262
-      y: 243
-    - pin: A4
-      x: 262
-      y: 369
-
-    - pin: A5
-      x: 342
-      y: 243
-    - pin: A6
-      x: 342
-      y: 369
-
-
-    - pin: A7
-      x: 411
-      y: 264
-    - pin: A8
-      x: 411
-      y: 393
-
-    - pin: A9
-      x: 491
-      y: 264
-    - pin: A10
-      x: 491
-      y: 393
-
-    - pin: A11
-      x: 557
-      y: 264
-    - pin: A12
-      x: 557
-      y: 393
-    - pin: A13
-      x: 627
-      y: 264
-    - pin: A14
-      x: 627
-      y: 393
-
-    - pin: A15
-      x: 700
-      y: 264
-    - pin: A16
-      x: 700
-      y: 393
-
-    - pin: A17
-      x: 767
-      y: 264
-    - pin: A18
-      x: 767
-      y: 393
-
-    - pin: A19
-      x: 845
-      y: 264
-    - pin: A20
-      x: 845
-      y: 393
-    - pin: A21
-      x: 915
-      y: 264
-    - pin: A22
-      x: 915
-      y: 393
-    - pin: A23
-      x: 986
-      y: 243
-    - pin: A24
-      x: 986
-      y: 369
-    - pin: A25
-      x: 1071
-      y: 243
-    - pin: A26
-      x: 1071
-      y: 369
-
-    - pin: B1
-      x: 1218
-      y: 260
-    - pin: B2
-      x: 1218
-      y: 387
-    - pin: B3
-      x: 1287
-      y: 260
-    - pin: B4
-      x: 1287
-      y: 387
-    - pin: B5
-      x: 1365
-      y: 260
-    - pin: B6
-      x: 1365
-      y: 387
-
-    #    - pin: B7
-    #      x: 1070
-    #      y: 260
-    #    - pin: B8
-    #      x: 1070
-    #      y: 387
-    #    - pin: B7
-    #      x: 1436
-    #      y: 260
-    #    - pin: B8
-    #      x: 1436
-    #      y: 387
-    - pin: B9
-      x: 1506
-      y: 260
-    - pin: B19
-      x: 1506
-      y: 387
-
-    - pin: B11
-      x: 1578
-      y: 260
-    - pin: B12
-      x: 1578
-      y: 387
-    - pin: B13
-      x: 1644
-      y: 260
-    - pin: B14
-      x: 1644
-      y: 387
-    - pin: B15
-      x: 1716
-      y: 260
-    - pin: B16
-      x: 1716
-      y: 387
-
-
-    - pin: C1
-      x: 1853
-      y: 260
-    - pin: C3
-      x: 1922
-      y: 260
-    - pin: C5
-      x: 1995
-      y: 260
-    - pin: C7
-      x: 2073
-      y: 260
-    - pin: C9
-      x: 2145
-      y: 260
-    - pin: C11
-      x: 2219
-      y: 260
-
-
-    - pin: C2
-      x: 1853
-      y: 387
-    - pin: C4
-      x: 1922
-      y: 387
-    - pin: C6
-      x: 1995
-      y: 387
-    - pin: C8
-      x: 2073
-      y: 387
-    - pin: C10
-      x: 2145
-      y: 387
-    - pin: C12
-      x: 2219
-      y: 387
-
-
-    - pin: D1
-      x: 2368
-      y: 220
-    - pin: D2
-      x: 2368
-      y: 350
-
-    - pin: D3
-      x: 2435
-      y: 250
-    - pin: D4
-      x: 2435
-      y: 376
-
-
-    - pin: D11
-      x: 2712
-      y: 250
-    - pin: D13
-      x: 2792
-      y: 250
-    - pin: D14
-      x: 2792
-      y: 376
-
-    - pin: D15
-      x: 2877
-      y: 250
-    - pin: D16
-      x: 2877
-      y: 376
-
-    - pin: D17
-      x: 2950
-      y: 250
-    - pin: D18
-      x: 2950
-      y: 376
-
-    - pin: D19
-      x: 3024
-      y: 220
-    - pin: D20
-      x: 3024
-      y: 350
-    - pin: D21
-      x: 3122
-      y: 220
-    - pin: D22
-      x: 3122
-      y: 350
-
-    - pin: 1C
-      x: 2038
-      y: 220
-    - pin: 1D
-      x: 2038
-      y: 350
-
-    - pin: 1E
-      x: 2950
-      y: 250
-    - pin: 1F
-      x: 2950
-      y: 376
-
-    - pin: 1G
-      x: 3624
-      y: 250
-    - pin: 1H
-      x: 3624
-      y: 376
-
-    - pin: 1I
-      x: 3508
-      y: 250
-    - pin: 1J
-      x: 3508
-      y: 376
-
-    - pin: 1M
-      x: 3284
-      y: 250
-    - pin: 1N
-      x: 3284
-      y: 376
-
-
-    - pin: 2A
-      x: 2616
-      y: 352
-
-    - pin: 2B
-      x: 2616
-      y: 544
-
-    - pin: 2C
-      x: 2506
-      y: 352
-
-    - pin: 2D
-      x: 2506
-      y: 544
-
-    - pin: 2E
-      x: 2396
-      y: 352
-
-    - pin: 2F
-      x: 2396
-      y: 544
-
-    - pin: 2G
-      x: 2286
-      y: 352
-
-    - pin: 2H
-      x: 2286
-      y: 544
-
-    - pin: 2I
-      x: 2176
-      y: 352
-
-    - pin: 2J
-      x: 2176
-      y: 544
-
-    - pin: 2K
-      x: 2066
-      y: 352
-
-    - pin: 2L
-      x: 2066
-      y: 544
-
-    - pin: 2M
-      x: 1956
-      y: 352
-
-    - pin: 2N
-      x: 1956
-      y: 544
-
-    - pin: 2O
-      x: 1846
-      y: 352
-
-    - pin: 2P
-      x: 1846
-      y: 544
-
+  title: Honda OBD1 ECU Adapter for UAEFI
+  name: honda-obd1
+  directory: hellen/uaefi-honda-obd1
+  board_url: https://wiki.rusefi.com/uaefi
+  description: Honda OBD1 to UAEFI adapter - J1=TPS+ETB, J2=PPS, J3=CAN+UART+LEDs, J4=4Coils+Tach, J5=VR_Sensors, J7=Optional
